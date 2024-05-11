@@ -1,0 +1,12 @@
+<h1>New Item</h1>
+<%= form_with(model: @item, url: items_path) do |form| %>
+  <!-- Other form fields (e.g., item name, price, etc.) -->
+
+  <!-- Dropdown for selecting the associated product -->
+  <div class="field">
+    <%= form.label :product_id, 'Select Product' %>
+    <%= form.collection_select :product_id, Product.all, :id, :name, prompt: 'Choose a product' %>
+  </div>
+
+  <%= form.submit 'Create Item' %>
+<% end %>
